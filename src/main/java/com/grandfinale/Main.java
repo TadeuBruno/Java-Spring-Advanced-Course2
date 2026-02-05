@@ -28,7 +28,7 @@ public class Main {
         InnerClass.B b = innerClass.new B(); // Para se instanciar inner class não estática
         b.classB();
 
-        InnerClass.C c = new InnerClass.C(); // Para instanciar inner class estáticas
+        InnerClass.C c = new InnerClass.C(); // Para instanciar inner class estáticas.
 
         A a = new A()
         { // Anonymous inner class
