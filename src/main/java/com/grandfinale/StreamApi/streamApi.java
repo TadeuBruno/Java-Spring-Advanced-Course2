@@ -2,6 +2,8 @@ package com.grandfinale.StreamApi;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class streamApi {
 
@@ -27,7 +29,7 @@ public class streamApi {
                 .map(n -> n*2)
                 .reduce(0, (c,e) -> c+e);
 
-        int resultSorted = nums.stream() //Tudo junto
+        Stream<Integer> resultSorted = nums.stream() //Tudo junto
                 .filter(n -> n%2 ==0)
                 .sorted();
 
@@ -58,12 +60,11 @@ public class streamApi {
     public void optional(){
         List<String> names = Arrays.asList("John", "Jane", "Jack", "Jill");
 
-        Optinal<String> name = names.stream()
+        Optional<String> name = names.stream()
                 .filter(i -> i.contains("x"))
-                .findFirst() 
-                .orElse("Not found"); //se nao encontrar o elemento retorna "Not found"
+                .findFirst(); //se nao encontrar o elemento retorna "Not found"
 
-        System.out.println(name);
+        System.out.println(name.orElse("Not found"));
     }
 
     public void methodReference(){
@@ -72,5 +73,5 @@ public class streamApi {
         names.stream()
                 .map(String::toUpperCase) //mesma coisa que .map(i -> i.toUpperCase())
                 .forEach(System.out::println); //mesma coisa que .forEach(i -> System.out.println(i))
-    }}
+    }
 }
